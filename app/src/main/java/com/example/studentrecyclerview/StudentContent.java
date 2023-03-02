@@ -8,13 +8,12 @@ public class StudentContent {
         String[] names = {"John", "Mary", "Peter", "Susan", "Kim", "George", "Alan", "Stacy", "Michelle", "Laura", "Tom", "Jane", "Alex", "Jim", "Steve", "Rachel", "Katherine", "Andrew", "Julie", "Lisa"};
 
         ArrayList<Student> students = new ArrayList<Student>();
-        for (int i = 0; i < 20; i++) {
-            // generate random number between 0 and 19
-            int random = (int) (Math.random() * 20);
-            // generate random number between 1000000 and 9999999
-            int randomInscriptionNumber = (int) (Math.random() * 9000000 + 1000000);
+        for (String name : names) {
+            // generate random number between 10000 and 99999
+            int randomInscriptionNumber = (int) (Math.random() * 900 + 100);
             // create a student object
-            Student student = new Student(String.valueOf(randomInscriptionNumber), names[random]);
+            Student student = new Student(String.valueOf(randomInscriptionNumber), name);
+            //Student student = new Student(String.valueOf(), names[i]);
             // add student object to the list
             students.add(student);
         }

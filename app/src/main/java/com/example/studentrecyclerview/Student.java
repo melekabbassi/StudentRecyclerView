@@ -1,6 +1,6 @@
 package com.example.studentrecyclerview;
 
-public class Student {
+public class Student implements Comparable<Student>  {
     private String InscriptionNumber;
     private String Name;
 
@@ -23,5 +23,10 @@ public class Student {
 
     public void setName(String name) {
         this.Name = name;
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        return this.InscriptionNumber.compareTo(student.InscriptionNumber);
     }
 }

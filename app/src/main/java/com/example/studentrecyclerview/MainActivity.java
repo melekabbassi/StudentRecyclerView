@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +26,11 @@ public class MainActivity extends AppCompatActivity {
         StudentLayoutManager = new LinearLayoutManager(this);
         StudentRecyclerView.setLayoutManager(StudentLayoutManager);
         StudentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        StudentAdapter = new StudentAdapter(this, StudentContent.getStudents());
+
+
+        ArrayList<Student> students = StudentContent.getStudents();
+        Collections.sort(students);
+        StudentAdapter = new StudentAdapter(this, students);
         StudentRecyclerView.setAdapter(StudentAdapter);
     }
 }
