@@ -64,24 +64,26 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             @Override
             public boolean onLongClick(View v) {
                 // Alert Dialog to confirm delete
-                AlertDialog alertDialog = new AlertDialog.Builder(context)
-                        .setTitle("Delete Student")
-                        .setMessage("Are you sure you want to delete + " + students.get(position).getInscriptionNumber() + " from students list ?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                students.remove(position);
-                                notifyItemRemoved(position);
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create();
-                alertDialog.show();
+                if (position != RecyclerView.NO_POSITION && position < students.size()) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(context)
+                            .setTitle("Delete Student")
+                            .setMessage("Are you sure you want to delete + " + students.get(position).getInscriptionNumber() + " from students list ?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    students.remove(position);
+                                    notifyItemRemoved(position);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .create();
+                    alertDialog.show();
+                }
                 return true;
             }
         });
