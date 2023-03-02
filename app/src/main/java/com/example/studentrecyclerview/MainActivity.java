@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
         StudentRecyclerView = findViewById(R.id.StudentRecyclerView);
         StudentLayoutManager = new LinearLayoutManager(this);
         StudentRecyclerView.setLayoutManager(StudentLayoutManager);
-
-        List<Student> students = StudentAdapter.getStudents();
-        StudentAdapter = new StudentAdapter(this, students);
+        StudentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        StudentAdapter = new StudentAdapter(this, StudentContent.getStudents());
         StudentRecyclerView.setAdapter(StudentAdapter);
     }
 }

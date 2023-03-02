@@ -1,10 +1,8 @@
 package com.example.studentrecyclerview;
 
 import java.util.ArrayList;
-
 public class StudentContent {
     // use for loop to create a list of students (20 students) inscription number and name are random
-
     public static ArrayList<Student> getStudents() {
         // list of random names
         String[] names = {"John", "Mary", "Peter", "Susan", "Kim", "George", "Alan", "Stacy", "Michelle", "Laura", "Tom", "Jane", "Alex", "Jim", "Steve", "Rachel", "Katherine", "Andrew", "Julie", "Lisa"};

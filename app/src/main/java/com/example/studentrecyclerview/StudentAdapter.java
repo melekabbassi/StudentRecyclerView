@@ -42,8 +42,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     @Override
     public StudentAdapter.StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_item, parent, false);
-        StudentViewHolder studentViewHolder = new StudentViewHolder(view);
-        return studentViewHolder;
+        return new StudentViewHolder(view);
     }
 
     @Override
@@ -55,7 +54,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, students.get(position).getName(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Inscription number: " + student.getInscriptionNumber() + " Name: " + student.getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -73,6 +72,10 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             super(itemView);
             textViewInscriptionNumber = (TextView) itemView.findViewById(R.id.TextViewInscriptionNumber);
             textViewName = (TextView) itemView.findViewById(R.id.TextViewName);
+        }
+
+        public TextView getTextViewInscriptionNumber() {
+            return textViewInscriptionNumber;
         }
     }
 }
